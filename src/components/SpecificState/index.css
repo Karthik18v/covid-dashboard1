@@ -92,7 +92,7 @@
 .district-confirmed {
     font-size: 1.2em;
     font-weight: bold;
-    color: #d9534f;
+    color: #94A3B8;
     /* Red color for confirmed cases */
 }
 
@@ -100,7 +100,7 @@
 .district-name {
     font-size: 1.1em;
     font-weight: 500;
-    color: #5a5a5a;
+    color: #94A3B8;
 }
 
 /* Hover effect for each item */

@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import { IoSearch } from "react-icons/io5";
+import { IoIosArrowDroprightCircle } from "react-icons/io";
 import { Link } from "react-router-dom";
 import { Oval } from "react-loader-spinner";
 import image1 from "../assets/image1.png";
@@ -16,6 +17,18 @@ import statesList from "../StateList";
 const Home = () => {
   const [stateWiseData, setStateWiseData] = useState([]);
   const [loading, setLoading] = useState(true);
+  const [searchList, setSearchList] = useState([]);
+
+  const onChangeSearch = (searchTerm) => {
+    if (searchTerm !== "") {
+      const filteredStates = statesList.filter((state) =>
+        state.state_name.toLowerCase().includes(searchTerm.toLowerCase())
+      );
+      setSearchList(filteredStates);
+    } else {
+      setSearchList([]);
+    }
+  };
 
   useEffect(() => {
     const getDetails = async () => {
@@ -87,101 +100,133 @@ const Home = () => {
     {
       id: 1,
       heading: "Active",
-      imageUrl: image2,
+      imageUrl: image3,
       number: totalActive,
       color: "#007BFF",
     },
     {
       id: 2,
       heading: "Recovered",
-      imageUrl: image3,
+      imageUrl: image4,
       number: totalRecovered,
       color: "#28A745",
     },
     {
       id: 3,
       heading: "Deceased",
-      imageUrl: image4,
+      imageUrl: image2,
       number: totalDeceased,
       color: "#6C757D",
     },
   ];
 
+  console.log(searchList);
+
   return (
-    <div className="home-container">
+    <>
       <Header />
-      {!loading ? (
-        <>
-          <div className="main">
-            <div className="search-bar">
-              <IoSearch size="20" />
-              <input
-                className="search-input"
-                type="text"
-                placeholder="Enter state"
-              />
+      <div className="home-container">
+        {!loading ? (
+          <>
+            <div className="main">
+              <div className="search-bar">
+                <IoSearch size="20" />
+                <input
+                  className="search-input"
+                  type="text"
+                  placeholder="Enter state"
+                  onChange={(e) => onChangeSearch(e.target.value)}
+                />
+              </div>
             </div>
+            {searchList.length > 0 ? (
+              <ul className="search-list">
+                {searchList.map((state) => (
+                  <li>
+                    <div className="search-item">
+                      <h5 className="search-state-name">{state.state_name}</h5>
+                      <Link
+                        to={`/state/${state.state_code}`}
+                        style={{ textDecoration: "none" }}
+                      >
+                        <div className="search-state-code">
+                          {state.state_code}
+                          <IoIosArrowDroprightCircle />
+                        </div>
+                      </Link>
+                    </div>
+                  </li>
+                ))}
+              </ul>
+            ) : (
+              <>
+                <Stats caseDetails={caseDetails} />
+                <table
+                  border="1"
+                  style={{
+                    width: "956px",
+                    height: "2080px",
+                    textAlign: "left",
+                    marginLeft: "150px",
+                    borderRadius: "15px",
+                  }}
+                >
+                  <thead>
+                    <tr>
+                      <th>States/UT</th>
+                      <th>Confirmed</th>
+                      <th>Active</th>
+                      <th>Recovered</th>
+                      <th>Deceased</th>
+                      <th>Population</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {stateWiseData.map((eachState) => (
+                      <tr className="table-row" key={eachState.stateCode}>
+                        <td className="table-state-name">
+                          <Link
+                            to={`/state/${eachState.stateCode}`}
+                            style={{
+                              textDecoration: "none",
+                              color: "white",
+                              cursor: "pointer",
+                            }}
+                            onMouseEnter={(e) =>
+                              (e.target.style.textDecoration = "underline")
+                            }
+                            onMouseLeave={(e) =>
+                              (e.target.style.textDecoration = "none")
+                            }
+                            title={`Click to view details of ${eachState.stateName}`}
+                          >
+                            {eachState.stateName}
+                          </Link>
+                        </td>
+                        <td className="confirmed-cases">
+                          {eachState.confirmed}
+                        </td>
+                        <td className="active-cases">{eachState.active}</td>
+                        <td className="recovered-cases">
+                          {eachState.recovered}
+                        </td>
+                        <td className="deceased-cases">{eachState.deceased}</td>
+                        <td className="population">{eachState.population}</td>
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
+                <Footer />
+              </>
+            )}
+          </>
+        ) : (
+          <div className="loader-container">
+            <Oval color="white" height={50} width={50} />
           </div>
-          <Stats caseDetails={caseDetails} />
-          <table
-            border="1"
-            style={{
-              width: "956px",
-              height: "2080px",
-              textAlign: "left",
-              marginLeft: "150px",
-              borderRadius: "15px",
-            }}
-          >
-            <thead>
-              <tr>
-                <th>States/UT</th>
-                <th>Confirmed</th>
-                <th>Active</th>
-                <th>Recovered</th>
-                <th>Deceased</th>
-                <th>Population</th>
-              </tr>
-            </thead>
-            <tbody>
-              {stateWiseData.map((eachState) => (
-                <tr className="table-row" key={eachState.stateCode}>
-                  <td className="table-state-name">
-                    <Link
-                      to={`/state/${eachState.stateCode}`}
-                      style={{
-                        textDecoration: "none",
-                        color: "white",
-                        cursor: "pointer",
-                      }}
-                      onMouseEnter={(e) =>
-                        (e.target.style.textDecoration = "underline")
-                      }
-                      onMouseLeave={(e) =>
-                        (e.target.style.textDecoration = "none")
-                      }
-                      title={`Click to view details of ${eachState.stateName}`}
-                    >
-                      {eachState.stateName}
-                    </Link>
-                  </td>
-                  <td className="confirmed-cases">{eachState.confirmed}</td>
-                  <td className="active-cases">{eachState.active}</td>
-                  <td className="recovered-cases">{eachState.recovered}</td>
-                  <td className="deceased-cases">{eachState.deceased}</td>
-                  <td className="population">{eachState.population}</td>
-                </tr>
-              ))}
-            </tbody>
-          </table>
-          <Footer />
-        </>
-      ) : (
-        <div className="loader-container">
-          <Oval color="white" height={50} width={50} />
-        </div>
-      )}
-    </div>
+        )}
+      </div>
+    </>
   );
 };
 

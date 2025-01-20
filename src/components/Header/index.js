@@ -3,9 +3,11 @@ import "./index.css";
 
 const Header = () => (
   <div className="header">
-    <h2>
-      Covid<span>India</span>
-    </h2>
+    <Link to="/" style={{ textDecoration: "none", color: "white" }}>
+      <h2>
+        Covid<span>India</span>
+      </h2>
+    </Link>
     <div className="header-links">
       <Link to="/" style={{ textDecoration: "none", color: "white" }}>
         Home
