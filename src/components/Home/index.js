@@ -2,7 +2,10 @@ import { useState, useEffect } from "react";
 import { IoSearch } from "react-icons/io5";
 import { Link } from "react-router-dom";
 import { Oval } from "react-loader-spinner";
-
+import image1 from "../assets/image1.png";
+import image2 from "../assets/image2.png";
+import image3 from "../assets/image3.png";
+import image4 from "../assets/image4.png";
 import Footer from "../Footer";
 import Header from "../Header";
 import Stats from "../Stats";
@@ -77,28 +80,28 @@ const Home = () => {
     {
       id: 0,
       heading: "Confirmed",
-      imageUrl: "https://i.imghippo.com/files/ZndV8710Oks.png",
+      imageUrl: image1,
       number: totalConfirms,
       color: "#FF073A",
     },
     {
       id: 1,
       heading: "Active",
-      imageUrl: "https://i.imghippo.com/files/rCbe7377VU.png",
+      imageUrl: image2,
       number: totalActive,
       color: "#007BFF",
     },
     {
       id: 2,
       heading: "Recovered",
-      imageUrl: "https://i.imghippo.com/files/OvUT8922ETc.png",
+      imageUrl: image3,
       number: totalRecovered,
       color: "#28A745",
     },
     {
       id: 3,
       heading: "Deceased",
-      imageUrl: "https://i.imghippo.com/files/Sgro2647PC.png",
+      imageUrl: image4,
       number: totalDeceased,
       color: "#6C757D",
     },

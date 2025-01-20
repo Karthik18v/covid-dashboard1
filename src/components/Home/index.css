@@ -107,6 +107,7 @@ thead {
     justify-content: center;
     display: flex;
     flex-direction: column;
+    background-color: #161625;
 }
 
 .loader {
