@@ -162,12 +162,14 @@ const Home = () => {
               <>
                 <Stats caseDetails={caseDetails} />
                 <table
+                  className="table"
                   border="1"
                   style={{
                     width: "956px",
                     height: "2080px",
                     textAlign: "left",
-                    marginLeft: "150px",
+                    marginLeft: "auto",
+                    marginRight: "auto",
                     borderRadius: "15px",
                   }}
                 >

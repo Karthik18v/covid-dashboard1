@@ -4,7 +4,7 @@
     width: 100vw;
     height: 100vh;
     overflow-y: auto;
-   
+
 }
 
 .main {
@@ -26,6 +26,26 @@
     margin-left: auto;
     margin-right: auto;
 }
+
+
+@media screen and (max-width:360px) {
+    .search-bar {
+        width: 80vw;
+        height: 22px;
+    }
+
+    .home-container {
+        padding-left: 24px;
+        background-color: #161625;
+        color: white;
+        height: 100vh;
+        width: 120vw;
+        overflow-y: auto;
+    }
+
+}
+
+
 
 .search-input {
     height: 100%;
