@@ -161,63 +161,67 @@ const Home = () => {
             ) : (
               <>
                 <Stats caseDetails={caseDetails} />
-                <table
-                  className="table"
-                  border="1"
-                  style={{
-                    width: "956px",
-                    height: "2080px",
-                    textAlign: "left",
-                    marginLeft: "auto",
-                    marginRight: "auto",
-                    borderRadius: "15px",
-                  }}
-                >
-                  <thead>
-                    <tr>
-                      <th>States/UT</th>
-                      <th>Confirmed</th>
-                      <th>Active</th>
-                      <th>Recovered</th>
-                      <th>Deceased</th>
-                      <th>Population</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    {stateWiseData.map((eachState) => (
-                      <tr className="table-row" key={eachState.stateCode}>
-                        <td className="table-state-name">
-                          <Link
-                            to={`/state/${eachState.stateCode}`}
-                            style={{
-                              textDecoration: "none",
-                              color: "white",
-                              cursor: "pointer",
-                            }}
-                            onMouseEnter={(e) =>
-                              (e.target.style.textDecoration = "underline")
-                            }
-                            onMouseLeave={(e) =>
-                              (e.target.style.textDecoration = "none")
-                            }
-                            title={`Click to view details of ${eachState.stateName}`}
-                          >
-                            {eachState.stateName}
-                          </Link>
-                        </td>
-                        <td className="confirmed-cases">
-                          {eachState.confirmed}
-                        </td>
-                        <td className="active-cases">{eachState.active}</td>
-                        <td className="recovered-cases">
-                          {eachState.recovered}
-                        </td>
-                        <td className="deceased-cases">{eachState.deceased}</td>
-                        <td className="population">{eachState.population}</td>
+                <div className="table-container">
+                  <table
+                    className="table"
+                    border="1"
+                    style={{
+                      width: "956px",
+                      height: "2080px",
+                      textAlign: "left",
+                      marginLeft: "auto",
+                      marginRight: "auto",
+                      borderRadius: "15px",
+                    }}
+                  >
+                    <thead>
+                      <tr>
+                        <th>States/UT</th>
+                        <th>Confirmed</th>
+                        <th>Active</th>
+                        <th>Recovered</th>
+                        <th>Deceased</th>
+                        <th>Population</th>
                       </tr>
-                    ))}
-                  </tbody>
-                </table>
+                    </thead>
+                    <tbody>
+                      {stateWiseData.map((eachState) => (
+                        <tr className="table-row" key={eachState.stateCode}>
+                          <td className="table-state-name">
+                            <Link
+                              to={`/state/${eachState.stateCode}`}
+                              style={{
+                                textDecoration: "none",
+                                color: "white",
+                                cursor: "pointer",
+                              }}
+                              onMouseEnter={(e) =>
+                                (e.target.style.textDecoration = "underline")
+                              }
+                              onMouseLeave={(e) =>
+                                (e.target.style.textDecoration = "none")
+                              }
+                              title={`Click to view details of ${eachState.stateName}`}
+                            >
+                              {eachState.stateName}
+                            </Link>
+                          </td>
+                          <td className="confirmed-cases">
+                            {eachState.confirmed}
+                          </td>
+                          <td className="active-cases">{eachState.active}</td>
+                          <td className="recovered-cases">
+                            {eachState.recovered}
+                          </td>
+                          <td className="deceased-cases">
+                            {eachState.deceased}
+                          </td>
+                          <td className="population">{eachState.population}</td>
+                        </tr>
+                      ))}
+                    </tbody>
+                  </table>
+                </div>
                 <Footer />
               </>
             )}

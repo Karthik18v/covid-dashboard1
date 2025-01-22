@@ -1,10 +1,12 @@
 .home-container {
     background-color: #161625;
     color: white;
-    width: 100vw;
     height: 100vh;
     overflow-y: auto;
+}
 
+.home-container::-webkit-scrollbar {
+    display: none;
 }
 
 .main {
@@ -28,7 +30,9 @@
 }
 
 
-@media screen and (max-width:360px) {
+
+
+@media screen and (max-width:768px) {
     .search-bar {
         width: 80vw;
         height: 22px;
@@ -39,8 +43,15 @@
         background-color: #161625;
         color: white;
         height: 100vh;
-        width: 120vw;
         overflow-y: auto;
+    }
+
+    .table-container {
+        margin-left: auto;
+        margin-right: auto;
+        width: 85vw;
+        overflow-x: auto;
+        margin-top: 30px;
     }
 
 }
@@ -177,32 +188,35 @@ thead {
     cursor: pointer;
 }
 
+
 .search-list {
     list-style-type: none;
+    display: flex;
+    flex-direction: column;
     position: absolute;
-    top: 210px;
-    left: 260px;
+    left: 50%;
+    transform: translateX(-50%);
     height: 60vh;
-    overflow-y: scroll;
+    width: 90%; /* Use percentage for flexibility */
+    max-width: 624px;
+    overflow-y: auto;
+    
 }
 
-.search-list::-webkit-scrollbar {
+.search-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    border-radius: 5px;
+    margin-bottom: 10px;
+}
+
+.search-list::-webkit-scrollbar{
     display: none;
 }
 
 
-.search-item {
-    display: flex;
-    width: 644px;
-    justify-content: space-between;
-    margin-left: auto;
-    margin-right: auto;
-    padding: 10px 20px;
-    height: 20px;
-    align-items: center;
-    margin-bottom: 10px;
-
-}
 
 .search-state-name {
     color: #64748B;
@@ -215,6 +229,39 @@ thead {
     align-items: center;
     border-radius: 5px;
     padding: 5px 10px;
-    width: 63px;
-    gap: 20px;
+}
+
+@media screen and (max-width: 768px) {
+    .search-bar {
+        width: 80%;
+        height: auto;
+        padding: 5px 15px;
+    }
+
+    .search-list {
+        width: 100%;
+        max-width: 80%;
+        left: 150;
+    }
+
+    .search-item {
+        width: 90%;
+        margin: 0 auto 10px;
+        font-size: 12px;
+    }
+
+    .state-wise-details {
+        margin: 10px auto;
+        width: 95%;
+    }
+
+    .state-item {
+        flex-wrap: wrap; /* Allow items to stack if they don't fit */
+        padding: 10px 5px;
+    }
+
+    .state-name, .state-confirmed {
+        min-width: auto;
+        flex: 1; /* Allow flex distribution */
+    }
 }

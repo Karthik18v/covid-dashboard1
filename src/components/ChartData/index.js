@@ -72,7 +72,7 @@ const ChartData = ({ activeTab, chartData }) => {
   const renderLineChart = (type, color, bgColor) => {
     const lineChartData = barChartData;
     return (
-      <div style={{ backgroundColor: bgColor }}>
+      <div className="lineChart-container" style={{ backgroundColor: bgColor }}>
         <LineChart
           width={1018}
           height={328}

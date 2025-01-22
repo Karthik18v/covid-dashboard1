@@ -116,50 +116,54 @@ const SpecificState = () => {
   );
 
   return (
-    <div className="specific-state-container">
+    <>
       <Header />
-      {!loading ? (
-        <>
-          <div className="state-container">
-            <div className="state-header-container">
-              <div>
-                <h2 className="state-container-name">{stateName}</h2>
-                <p>Last update on march 28th 2021.</p>
-              </div>
-              <div>
-                <p>Tested</p>
-                <p>{totalTested}</p>
+      <div className="specific-state-container">
+        {!loading ? (
+          <>
+            <div className="state-container">
+              <div className="state-header-container">
+                <div>
+                  <h2 className="state-container-name">{stateName}</h2>
+                  <p>Last update on march 28th 2021.</p>
+                </div>
+                <div>
+                  <p>Tested</p>
+                  <p>{totalTested}</p>
+                </div>
               </div>
             </div>
-          </div>
-          <Stats
-            caseDetails={caseDetails}
-            onChangeCategory={onChangeCategory}
-            activeTab={activeTab}
-          />
-          <h1 className="district-heading">Top Districts</h1>
-          <div className="top-districts-container">
-            <ul className="top-districts">
-              {sortedDistricts.map((each) => (
-                <li key={each.districtName} className="top-district-item">
-                  <div className="district-item">
-                    <p className="district-confirmed">{each.confirmed || 0}</p>
-                    <p className="district-name">{each.districtName}</p>
-                  </div>
-                </li>
-              ))}
-            </ul>
-          </div>
+            <Stats
+              caseDetails={caseDetails}
+              onChangeCategory={onChangeCategory}
+              activeTab={activeTab}
+            />
+            <h1 className="district-heading">Top Districts</h1>
+            <div className="top-districts-container">
+              <ul className="top-districts">
+                {sortedDistricts.map((each) => (
+                  <li key={each.districtName} className="top-district-item">
+                    <div className="district-item">
+                      <p className="district-confirmed">
+                        {each.confirmed || 0}
+                      </p>
+                      <p className="district-name">{each.districtName}s</p>
+                    </div>
+                  </li>
+                ))}
+              </ul>
+            </div>
 
-          <ChartData activeTab={activeTab} chartData={chartData} />
-          <Footer />
-        </>
-      ) : (
-        <div className="loader-container">
-          <Oval color="white" height={"50"} width={"50"} />
-        </div>
-      )}
-    </div>
+            <ChartData activeTab={activeTab} chartData={chartData} />
+            <Footer />
+          </>
+        ) : (
+          <div className="loader-container">
+            <Oval color="white" height={"50"} width={"50"} />
+          </div>
+        )}
+      </div>
+    </>
   );
 };
 

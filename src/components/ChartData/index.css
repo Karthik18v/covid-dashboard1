@@ -11,6 +11,15 @@
     margin-right: auto;
 }
 
+@media screen and (max-width: 768px) {
+    .barCharts-container {
+        width: 100%;
+        overflow: auto;
+        /* Fit container to screen width */
+        /* Enable horizontal scrolling */
+    }
+}
+
 .charts {
     border-radius: 12px;
     margin-bottom: 32px;
@@ -73,8 +82,8 @@
     overflow-x: none;
 }
 
-@media (max-width: 600px) {
+@media screen and (max-width: 768px) {
     .charts {
-        width: 100%;
+        width: 80%;
     }
 }

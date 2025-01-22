@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 import "./index.css";
 
 const Header = () => (
-  <div className="header">
+  <nav className="header">
     <Link to="/" style={{ textDecoration: "none", color: "white" }}>
       <h2>
         Covid<span>India</span>
@@ -16,7 +16,7 @@ const Header = () => (
         About
       </Link>
     </div>
-  </div>
+  </nav>
 );
 
 export default Header;
