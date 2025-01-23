@@ -1,89 +1,28 @@
 .barCharts-container {
-    width: 1032px;
-    display: flex;
-    background-color: #161625;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    margin-top: 30px;
-    margin-bottom: 30px;
-    margin-left: auto;
-    margin-right: auto;
+  width: 80%;
+  margin-left: auto;
+  margin-right: auto;
+  overflow-x: auto;
 }
 
-@media screen and (max-width: 768px) {
-    .barCharts-container {
-        width: 100%;
-        overflow: auto;
-        /* Fit container to screen width */
-        /* Enable horizontal scrolling */
-    }
+.barCharts-container::-webkit-scrollbar {
+  display: none;
 }
 
-.charts {
-    border-radius: 12px;
-    margin-bottom: 32px;
-    padding: 40px;
-    overflow-x: auto;
+.line-chart-container {
+  width: 80%;
+  margin-left: auto;
+  margin-right: auto;
+  border-radius: 10px;
+
 }
 
-.confirmed-background {
-    background-color: #331427;
-    width: 1046px;
-    margin-left: auto;
-    margin-right: auto;
+@media screen and (max-width:768px) {
+  .line-chart-container {
+    overflow: auto;
+  }
 }
 
-.active-background {
-    background-color: #132240;
-    width: 1046px;
-    margin-left: auto;
-    margin-right: auto;
-}
-
-.recovered-background {
-    background-color: #182829;
-    width: 1046px;
-    margin-left: auto;
-    margin-right: auto;
-}
-
-.deceased-background {
-    background-color: #1c1c2b;
-    width: 1046px;
-    margin-left: auto;
-    margin-right: auto;
-}
-
-.tested-background {
-    background-color: #230f41;
-    width: 1046px;
-    margin-left: auto;
-    margin-right: auto;
-}
-
-.charts-title {
-    font-family: Roboto;
-    font-style: normal;
-    font-weight: 500;
-    font-size: 32px;
-    line-height: 48px;
-    color: #cbd5e1;
-}
-
-.barchart-container {
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.chart-wrapper {
-    overflow-x: none;
-}
-
-@media screen and (max-width: 768px) {
-    .charts {
-        width: 80%;
-    }
+.line-chart-container::-webkit-scrollbar {
+  display: none;
 }

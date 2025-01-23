@@ -228,7 +228,9 @@ const Home = () => {
           </>
         ) : (
           <div className="loader-container">
-            <Oval color="white" height={50} width={50} />
+            <div className="loader">
+              <Oval color="white" height={50} width={50} />
+            </div>
           </div>
         )}
       </div>

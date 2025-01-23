@@ -1,115 +1,33 @@
-.state-container {
-    background-color: #161625;
-    color: aliceblue;
-    width: 100vw;
-    display: none;
-
-}
-
-.state-container-name {
-    background-color: #0284c729;
-    color: #0ea5e9;
-    font-size: 20px;
-    padding: 10px;
-    border-radius: 30px;
-    text-align: center;
-}
-
-.state-header-container {
-    display: flex;
-    text-align: end;
-    margin-left: 150px;
-    justify-content: space-between;
-    width: 1100px;
-    margin-top: 72px;
-}
-
 .specific-state-container {
     background-color: #161625;
     display: flex;
     flex-direction: column;
-    width: 100vw;
 }
 
-.districts-items {
+.top-districts {
     list-style-type: none;
-    display: flex;
-    flex-wrap: wrap;
-    margin: 10px 100px;
+    color: #94A3B8;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px;
+    margin-left: auto;
 }
-
 
 .district-item {
     display: flex;
-    width: 250px;
-    gap: 20px;
-    color: white;
+    gap: 30px;
 }
 
-.district-heading {
-    margin-left: 100px;
-    color: red;
-}
-
-.case-details-container {
-    display: flex;
-    width: 70%;
-}
-
-/* Style for the list of top districts */
-
-/* Container for the top districts list */
-.top-districts-container {
-    width: 80vw;
-    /* Set the container width to 80% of the viewport width */
-    margin: 0 auto;
-    /* Center the container horizontally */
-    padding: 20px;
-    /* Optional padding to give some space inside the container */
-}
-
-/* Style for the list of top districts */
-/* Default: 4 items per row */
-.top-districts {
-    list-style-type: none;
-    padding: 0;
-    margin: 0;
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 15px;
-}
-
-/* For screens with max-width of 768px: 2 items per row */
-@media screen and (max-width: 768px) {
+@media screen and (max-width:600px) {
     .top-districts {
         grid-template-columns: repeat(2, 1fr);
-        /* 2 items per row */
     }
+
 }
 
-
-
-/* Style for each district item */
-.top-district-item {
-    border-radius: 8px;
-}
-
-/* Confirmed case styling */
-.district-confirmed {
-    font-size: 1.2em;
-    font-weight: bold;
-    color: #94A3B8;
-    /* Red color for confirmed cases */
-}
-
-/* District name styling */
-.district-name {
-    font-size: 1.1em;
-    font-weight: 500;
-    color: #94A3B8;
-}
-
-/* Hover effect for each item */
-.top-district-item:hover {
-    cursor: pointer;
+.state-header-container {
+    display: flex;
+    justify-content: space-between;
+    padding: 20px 50px;
+    color: white;
 }
