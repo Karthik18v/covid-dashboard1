@@ -147,7 +147,7 @@ const SpecificState = () => {
                       <p className="district-confirmed">
                         {each.confirmed || 0}
                       </p>
-                      <p className="district-name">{each.districtName}s</p>
+                      <p className="district-name">{each.districtName}</p>
                     </div>
                   </li>
                 ))}
