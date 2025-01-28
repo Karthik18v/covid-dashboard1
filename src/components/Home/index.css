@@ -62,12 +62,13 @@
 }
 
 .loader-container {
-    height: 85vh;
+    height: 90vh;
     padding: auto;
     display: flex;
     flex-direction: column;
     width: 100vw;
     justify-content: center;
+    color: white;
 }
 
 .loader {
@@ -93,4 +94,33 @@ hr {
 
 thead {
     border-radius: 1px solid red;
+}
+
+.search-list {
+    width: 50%;
+    margin-left: auto;
+    margin-right: auto;
+    list-style-type: none;
+    padding-left: 0px;
+    height: 80vh;
+    overflow: auto;
+    color: white;
+}
+
+.search-list::-webkit-scrollbar {
+    display: none;
+}
+
+.search-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 10px;
+}
+
+.search-state-code {
+    color: goldenrod;
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid goldenrod;
 }

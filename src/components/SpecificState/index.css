@@ -12,18 +12,20 @@
     grid-template-columns: repeat(4, 1fr);
     gap: 10px;
     margin-left: auto;
+    margin-right: auto;
+    width: 90%;
 }
 
 .district-item {
     display: flex;
-    gap: 10px;
-    background-color: aliceblue;
+    gap: 5px;
 }
 
 @media screen and (max-width:600px) {
     .top-districts {
         grid-template-columns: repeat(2, 1fr);
     }
+
     .specific-state-container {
         background-color: #161625;
         display: flex;
@@ -38,4 +40,8 @@
     justify-content: space-between;
     padding: 20px 50px;
     color: white;
+}
+.district-heading{
+    color: red;
+    margin: 10px 50px;
 }

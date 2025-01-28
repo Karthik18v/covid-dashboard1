@@ -158,9 +158,13 @@ const SpecificState = () => {
             <Footer />
           </>
         ) : (
-          <div className="loader-container">
-            <Oval color="white" height={"50"} width={"50"} />
-          </div>
+          <>
+            <div className="loader-container">
+              <div className="loader">
+                <Oval color="white" height={50} width={50} />
+              </div>
+            </div>
+          </>
         )}
       </div>
     </>
